@@ -1,0 +1,60 @@
+<!-- app.component.html -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand">Practice</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <span style="margin-left: 45%">
+        <ng-container *ngIf="weatherData; else loading">
+          {{ weatherData.current.temperature_2m }}°C
+        </ng-container>
+        <ng-template #loading>
+          <div>Loading weather...</div>
+        </ng-template>
+      </span>
+      <ul class="navbar-nav ms-auto">
+        @if(isLogin()) {
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/">List</a>
+        </li>
+        } @else {
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/login">Login</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/signup">Signup</a>
+        </li>
+        }
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/about">About</a>
+        </li>
+        @if(isLogin()) {
+        <li class="nav-item d-flex align-items-center">
+          <span class="navbar-text"
+            >Logged in as: {{ authService.getLoginUser().name }}</span
+          >
+        </li>
+        <li class="nav-item d-flex align-items-center">
+          <button
+            class="btn btn-outline-danger me-2"
+            (click)="authService.logout()"
+          >
+            Logout
+          </button>
+        </li>
+        }
+      </ul>
+    </div>
+  </div>
+</nav>

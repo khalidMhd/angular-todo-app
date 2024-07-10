@@ -1,0 +1,46 @@
+<!-- login.component.html -->
+<div class="d-flex justify-content-center align-items-center mt-5">
+  <div class="card p-4" style="width: 20rem">
+    <div class="card-body">
+      <h5 class="card-title text-center mb-4">Login</h5>
+      <form [formGroup]="loginForm" (ngSubmit)="loginHandler()">
+        <div class="form-group">
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            placeholder="Enter email"
+            formControlName="email"
+          />
+          <p class="text-danger mt-2" [hidden]="email.valid || email.untouched">
+            Enter a valid email
+          </p>
+        </div>
+        <div class="form-group mt-3">
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            placeholder="Password"
+            formControlName="password"
+          />
+          <p
+            class="text-danger mt-2"
+            [hidden]="password.valid || password.untouched"
+          >
+            Enter a valid password
+          </p>
+        </div>
+        <div class="text-center">
+          <button
+            type="submit"
+            class="btn btn-primary btn-block mt-4"
+            [disabled]="!loginForm.valid"
+          >
+            Login
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
