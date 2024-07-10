@@ -69,9 +69,10 @@ export class CreateListComponent implements OnInit {
   }
 
   onUpdateItem(item: ListModel) {
-
-    this.title?.setValue(item.title);
-    this.description?.setValue(item.description);
+    this.listForm.patchValue({
+      title: item.title,
+      description: item.description
+    });
     this.isEditing = true;
     this.editingIndex = Number(item.index);
   }
