@@ -6,8 +6,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   imports: [],
   templateUrl: './about.component.html',
   styleUrl: './about.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush
-
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AboutComponent {
   counter = 0;
