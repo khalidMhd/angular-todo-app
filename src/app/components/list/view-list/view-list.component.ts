@@ -11,13 +11,14 @@ import {
 import { ListModel } from '../../../models/list.model';
 import { CommonModule } from '@angular/common';
 import { TruncatePipe } from '../../../pipe/truncate.pipe';
+import { ShowFullDescriptionDirective } from '../../../directive/show-full-description.directive.directive';
 
 @Component({
   selector: 'app-view-list',
   standalone: true,
   templateUrl: './view-list.component.html',
   styleUrls: ['./view-list.component.css'],
-  imports: [CommonModule, TruncatePipe],
+  imports: [CommonModule, TruncatePipe, ShowFullDescriptionDirective],
 })
 export class ViewListComponent {
   @Input() list: ListModel[] = [];
